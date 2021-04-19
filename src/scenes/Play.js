@@ -54,15 +54,15 @@ class Play extends Phaser.Scene {
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-        this.anims.create({
-            key: 'explode', 
-            frames: this.anims.generateFrameNumbers('explosion', {
-                start: 0,
-                end: 9, 
-                first: 0
-            }), 
-            frameRate: 30
-        });
+        // this.anims.create({
+        //     key: 'explode', 
+        //     frames: this.anims.generateFrameNumbers('explosion', {
+        //         start: 0,
+        //         end: 9, 
+        //         first: 0
+        //     }), 
+        //     frameRate: 30
+        // });
 
         // initialize the game scores
         this.p1Score = 0;
@@ -92,6 +92,8 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or <- for Menu.', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
+
+        // Change enemy speed at gameTimer2
         this.clock = this.time.delayedCall(game.settings.gameTimer2, () => {
             this.ship01.moveSpeed += 2;
             this.ship02.moveSpeed += 2;
@@ -112,7 +114,7 @@ class Play extends Phaser.Scene {
             this.scene.start('menuScene');
         }
 
-        this.starfield.tilePositionX -= starSpeed;
+        //this.starfield.tilePositionX -= starSpeed;
         if(!this.gameOver){
             // update rocket
             this.p1Rocket.update();
