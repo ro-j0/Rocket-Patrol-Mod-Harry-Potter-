@@ -16,6 +16,8 @@ Create a new title screen (e.g., new artwork, typography, layout) (10)
 (Menu screen has the Harry Potter logo, background and UI was recolored to fit a Gryffindor theme, the font from the books was used) 
 Allow the player to control the Rocket after it's fired (5)
 (Allows player movement after being launched)
+Implement the speed increase that happens after 30 seconds in the original game (5)
+(Implemented a 2 point speed increase that triggers halfway through game time, 30 seconds for Novice and 22.5 seconds for Expert)
 
 
 */
