@@ -11,7 +11,7 @@ class Play extends Phaser.Scene {
             height : 16
         });
         this.load.image('starfield', './assets/BackGround.png');
-
+        this.load.image('golden', './assets/golden snitch.png');
         this.load.spritesheet("explosion", "./assets/explosion.png", {
             frameWidth : 64,
             frameHeight : 32, 
@@ -46,6 +46,7 @@ class Play extends Phaser.Scene {
         this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4 + Math.floor(Math.random() * 100) + 150, 'spaceship', 0, 10).setOrigin(0,0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 +  borderPadding*2 + Math.floor(Math.random() * 100), 'spaceship', 0, 10).setOrigin(0,0);
         this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4 + Math.floor(Math.random() * 100), 'spaceship', 0, 10).setOrigin(0,0);
+        this.gs01 = new GoldenSnitch(this, game.config.width, borderUISize*7 + borderPadding*4 + Math.floor(Math.random() * 100), 'golden',0).setOrigin(0,0);
 
         // define keys 
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -112,6 +113,7 @@ class Play extends Phaser.Scene {
             this.ship01.update();
             this.ship02.update();
             this.ship03.update();
+            this.gs01.update();
         }
 
 
@@ -128,6 +130,10 @@ class Play extends Phaser.Scene {
         if(this.checkCollision(this.p1Rocket, this.ship01)){
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
+        }
+        if(this.checkCollision(this.p1Rocket, this.gs01)){
+            this.p1Rocket.reset();
+            this.shipExplode(this.gs01);
         }
     }
 
