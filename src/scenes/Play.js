@@ -5,11 +5,11 @@ class Play extends Phaser.Scene {
 
     preload() {
         // load images/tile sprites
-        this.load.image('rocket', './assets/Harry Final.png', {
-            frameWidth : 30,
-            frameHeight : 33
+        this.load.image('rocket', './assets/Harry Final.png');
+        this.load.image('spaceship', './assets/Quaffle.png', {
+            width : 16,
+            height : 16
         });
-        this.load.image('spaceship', './assets/spaceship.png');
         this.load.image('starfield', './assets/BackGround.png');
 
         this.load.spritesheet("explosion", "./assets/explosion.png", {
@@ -43,9 +43,9 @@ class Play extends Phaser.Scene {
         
         // add spaceship (x3)
 
-        this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0,0);
-        this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 +  borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0);
-        this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship01 = new Spaceship(this, game.config.width + borderUISize*6, borderUISize*4 + Math.floor(Math.random() * 100) + 150, 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 +  borderPadding*2 + Math.floor(Math.random() * 100), 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4 + Math.floor(Math.random() * 100), 'spaceship', 0, 10).setOrigin(0,0);
 
         // define keys 
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
