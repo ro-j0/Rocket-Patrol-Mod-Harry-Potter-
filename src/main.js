@@ -14,6 +14,9 @@ Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and i
 (golden snitch worth 150 points)
 Create a new title screen (e.g., new artwork, typography, layout) (10)
 (Menu screen has the Harry Potter logo, background and UI was recolored to fit a Gryffindor theme, the font from the books was used) 
+Allow the player to control the Rocket after it's fired (5)
+(Allows player movement after being launched)
+
 
 */
 // Game configuration 
