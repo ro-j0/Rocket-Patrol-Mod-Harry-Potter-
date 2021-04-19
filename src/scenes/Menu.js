@@ -8,6 +8,7 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
+        this.load.audio('menu_bgm', './assets/Theme.mp3');
         this.load.image('Logo', './assets/Logo.jpg');
     }
 
@@ -36,10 +37,13 @@ class Menu extends Phaser.Scene {
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+        this.sound.play('menu_bgm');
     }
 
     update () {
+        
         if(Phaser.Input.Keyboard.JustDown(keyLEFT)) { 
+            this.sound.stopAll('menu_bgm');
             // easy mode
             game.settings = {
                 spaceshipSpeed: 3, 
@@ -49,6 +53,7 @@ class Menu extends Phaser.Scene {
             this.scene.start('playScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
+            this.sound.stopAll('menu_bgm');
             // hard mode
             game.settings = {
                 spaceshipSpeed: 4, 
