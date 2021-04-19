@@ -10,12 +10,12 @@ class GoldenSnitch extends Phaser.GameObjects.Sprite {
         // move spaceship
         this.x -= this.moveSpeed;
         // wrap around
-        if(this.x <= 0 - this.width) {
-            this.x = game.config.width;
+        if(this.x <= 0 + borderUISize) {
+            this.x = game.config.width - borderUISize - this.width;
         }
     }
 
     reset () {
-        this.x = game.config.width;
+        this.x = game.config.width - borderUISize - this.width;
     }
 }
